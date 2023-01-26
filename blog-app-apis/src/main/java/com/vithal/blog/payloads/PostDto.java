@@ -4,13 +4,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.vithal.blog.entities.Category;
-import com.vithal.blog.entities.Comment;
-import com.vithal.blog.entities.User;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
