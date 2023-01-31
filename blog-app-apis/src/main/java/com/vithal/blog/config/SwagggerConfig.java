@@ -41,8 +41,12 @@ public class SwagggerConfig {
 	@Bean
 	public Docket api() {
 
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(getInfo()).securityContexts(securityContexts())
-				.securitySchemes(Arrays.asList(apiKeys())).select().apis(RequestHandlerSelectors.any())
+		return
+				new Docket(DocumentationType.SWAGGER_2)
+				.apiInfo(getInfo())
+				.securityContexts(securityContexts())
+				.securitySchemes(Arrays.asList(apiKeys()))
+				.select().apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();
 
 	}
