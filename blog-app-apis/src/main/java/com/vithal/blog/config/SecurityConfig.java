@@ -54,6 +54,7 @@ public class SecurityConfig {
                 .permitAll()
                 .requestMatchers(HttpMethod.GET)
                 .permitAll()
+               
                 .anyRequest()
                 .authenticated()
                 .and().exceptionHandling()
@@ -133,7 +134,7 @@ public class SecurityConfig {
 
     }
 
-
+//this bean used in controller layer.
     @Bean
     public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();

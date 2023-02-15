@@ -153,4 +153,11 @@ public class PostServiceImpl implements PostService {
         return postDtos;
     }
 
+	@Override
+	public List<PostDto> searcgPostsByContents(String keywords) {
+	List<Post> byContent = postRepo.findByContentContaining(keywords);
+	List<PostDto> postDtos = byContent.stream().map((post)->this.modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+		return postDtos;
+	}
+
 }

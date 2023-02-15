@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.vithal.blog.config.AppConstants;
+import com.vithal.blog.entities.Post;
 import com.vithal.blog.payloads.ApiResponse;
 import com.vithal.blog.payloads.PostDto;
 import com.vithal.blog.payloads.PostResponse;
@@ -146,6 +147,17 @@ public class PostController {
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource,response.getOutputStream())   ;
 
+    }
+    
+   // get posts by contentswise
+    @GetMapping("/posts/content/{keywords}")
+    public ResponseEntity<List<PostDto>> getPostsByContent(@PathVariable String keywords){
+	
+    	List<PostDto> searcgPostsByContents = postService.searcgPostsByContents(keywords);
+    	
+    	
+    	return new ResponseEntity<List<PostDto>>(searcgPostsByContents,HttpStatus.OK);    	
+    	
     }
 
 }
